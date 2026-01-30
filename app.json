@@ -2,20 +2,32 @@
   "name": "VISPER-MD",
   "description": "VISPER MD Best Whatsapp User Bot",
   "logo": "https://mv-visper-full-db.pages.dev/Data/visper_main.jpeg",
-  "keywords": ["bot"],
-  "success_url": "/",
-
+  "keywords": ["bot", "whatsapp", "visper"],
+  
   "env": {
     "SESSION_ID": {
       "description": "Put the session-id here.",
       "required": true
+    },
+    "PORT": {
+      "description": "Port for the bot to run",
+      "value": "3000",
+      "required": false
     }
-},
+  },
 
-     "buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
-        }
-     ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  
   "stack": "heroku-24"
 }
